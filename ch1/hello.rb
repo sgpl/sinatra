@@ -9,3 +9,8 @@ get '/hello' do
 end
 
 # localhost:4567/hello displays the message. 
+
+get '/frank' do 
+	name = "Frank"
+	"Hello #{name}"
+end

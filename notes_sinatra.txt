@@ -1,0 +1,27 @@
+# notes for sinatra: 
+
+http: hypertext transfer protocol
+	- allows communication over the internet bw clients and servers
+	- client will request a resource from server, which processes the request and sends back a response to the client. 
+	- this response contains a status code, and the requested resource (usually a web page)
+
+	these are sent via http. 
+
+sinatra is a ruby application in 2000 LOC. 
+	good study to understand how it works, and understand ruby better. 
+
+sinatra is build on top of Rack > which is a low-level interface that communicates bw/ an http server and a ruby object. 
+
+(other riby web frameworks: rails, ramaze, rango, camping, halcyon)
+
+## if you can build it in ruby, you can make it into a sinatra app. 
+is this ^ statement true?
+
+## only the last line is evaluated and sent to the browser. (the line before 'end' that is)
+
+## restarting the server after every change to existing files can be tiresome, so it's worth it to use Sinatra::Reloader which is part of the Sinatra::Contrib library. 
+
+>> to use Sinatra::Reloader, install the sinatra-contrib gem. 
+
+doing this now. December 11, 2013
+
