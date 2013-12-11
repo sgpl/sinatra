@@ -25,3 +25,8 @@ is this ^ statement true?
 
 doing this now. December 11, 2013
 
+# ^ this route contains a named parameter, called :name, signified
+# by the leading colon. 
+
+# Named parameter can go anywhere in the url and are available in the 
+# handler as part of the params hash. 
