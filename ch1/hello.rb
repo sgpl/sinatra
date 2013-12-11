@@ -1,4 +1,5 @@
 require 'sinatra' # ruby require statement that pulls in all the code from the Sinatra library
+require 'sinatra/reloader' if development?
 =begin 
 the following block is the "route handler"
 it starts with htTP verb 'get'
@@ -13,4 +14,8 @@ end
 get '/frank' do 
 	name = "Frank"
 	"Hello #{name}"
+end
+
+get '/sharad' do
+	"Hello World " * 10 
 end
