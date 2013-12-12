@@ -1,7 +1,11 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
+
 #set :public_folder, 'assets' # default name is public, but you can set it to whatever you want. 
 #set :views, 'templates'
+
+# the default names are public and views
+# if you want to change them, you need to use the above code. 
 
 get '/' do 
 	erb :home # this is known as a view. 
@@ -16,4 +20,8 @@ end
 
 get '/contact' do 
 	erb :contact
+end
+
+not_found do 
+	erb :not_found
 end
