@@ -31,6 +31,18 @@ get '/:name' do
 	name = params[:name]
 	"Hello #{name}"
 end
+
+get '/:one/:two/:three' do
+	"first: #{params[:one]}, second: #{params[:two]}, third: #{params[:three]}"
+end
+
+
+get '/what/time/is/it/in/:number/:hours' do #  this is the same thing as :name
+	number = params[:number].to_i
+	time = Time.now + number * 3600
+	"The time in #{number} hours will be #{time.strftime('%I:%M %p')}"
+end
+
 # ^ this route contains a named parameter, called :name, signified
 # by the leading colon. 
 
