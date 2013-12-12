@@ -30,3 +30,18 @@ doing this now. December 11, 2013
 
 # Named parameter can go anywhere in the url and are available in the 
 # handler as part of the params hash. 
+
+age_hash = {james: 23, amy: 34, bob: 45}
+
+--------
+get '/what/time/is/it/in/:number/:hours' do #  this is the same thing as :name
+	number = params[:number].to_i
+	time = Time.now + number * 3600
+	"The time in #{number} hours will be #{time.strftime('%I:%M %p')}"
+end
+
+# understand what time is doing: 
+# Time.now displays current time
+# we can add seconds to Time.now hence the * 3600 (60 min * 60 sec)
+### understand what .strftime is doing?
+---------
