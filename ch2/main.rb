@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
 
 get '/' do 
 	erb :home # this is known as a view. 
@@ -12,17 +13,17 @@ end
 __END__
 @@home
 <!doctype html>
+<% title = "Songs By Sinatra".swapcase %>
 <html lang="en">
 <head>
-	<title>Songs By Sinatra</title>
+	<title><%= title%></title>
 	<meta charset="utf-8">
 </head>
 <body>
 	<header>
-		<h1>Songs By Sinatra</h1>
+		<h1><%= title%></h1>
 		<nav>
 			<ul>
-
 				<li><a href="/" title="Home">Home</a></li>
 				<li><a href="/about" title="About">About</a></li>
 				<li><a href="/contact" title="Contact">Contact</a></li>
