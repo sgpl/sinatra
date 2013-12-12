@@ -25,3 +25,15 @@ end
 not_found do 
 	erb :not_found
 end
+
+=begin
+ # can also do this: // also need to create a four_o_four.erb in views
+four_o_four do
+	erb :four_o_four
+end
+=end
+
+get 'fake_error' do
+	status 500 # see wikipedia List of HTTP status codes (for a more comprehensive list of codes)
+	"This is a fake error mate!"
+end
