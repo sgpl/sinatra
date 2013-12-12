@@ -8,6 +8,7 @@ require 'sinatra/reloader' if development?
 # if you want to change them, you need to use the above code. 
 
 get '/' do 
+	@title = "Homepage. This is the homepage for this website!!!"
 	erb :home # this is known as a view. 
 			  # just like route handlers, except that instead of finishing with a string that's  
 			  # sent back to the browser, we finish with erb :home
@@ -15,6 +16,7 @@ get '/' do
 end
 
 get '/about' do 
+	@title = "This is the TITLE for the about page"
 	erb :about		
 end
 
@@ -23,6 +25,7 @@ get '/contact' do
 end
 
 not_found do 
+	@title = "You typed something wrong in the browser! ha ha ha"
 	erb :not_found
 end
 
@@ -37,3 +40,4 @@ get 'fake_error' do
 	status 500 # see wikipedia List of HTTP status codes (for a more comprehensive list of codes)
 	"This is a fake error mate!"
 end
+
