@@ -1,0 +1,19 @@
+h1 {
+	color: #903;
+	font: 32px/1 sans-serif;
+}
+
+header h1{
+	font-size: 40px;
+	line-height: 80px;
+	background: rgb(222,224,52);
+	padding-left: 100px;
+}
+
+p {
+	font: 15px/1.4 sans-serif;
+}
+
+body {
+	padding-left: 200px;
+}
