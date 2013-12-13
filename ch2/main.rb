@@ -1,3 +1,4 @@
+require 'sass'
 require 'sinatra'
 require 'slim'
 require 'sinatra/reloader' if development?
@@ -7,6 +8,11 @@ require 'sinatra/reloader' if development?
 
 # the default names are public and views
 # if you want to change them, you need to use the above code. 
+
+
+get ('/styles.css') { scss :styles } 
+
+# do = { and end = } in this block.
 
 get '/' do 
 	@title = "Homepage. This is the homepage for this website!!!"
