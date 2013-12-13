@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'slim'
 require 'sinatra/reloader' if development?
 
 #set :public_folder, 'assets' # default name is public, but you can set it to whatever you want. 
@@ -9,7 +10,7 @@ require 'sinatra/reloader' if development?
 
 get '/' do 
 	@title = "Homepage. This is the homepage for this website!!!"
-	erb :home # this is known as a view. 
+	slim :home # this is known as a view. 
 			  # just like route handlers, except that instead of finishing with a string that's  
 			  # sent back to the browser, we finish with erb :home
 			  # it's a reference to what is known as a view (which is a representation of data, such as markup )
@@ -17,16 +18,16 @@ end
 
 get '/about' do 
 	@title = "This is the TITLE for the about page"
-	erb :about		
+	slim :about		
 end
 
 get '/contact' do 
-	erb :contact
+	slim :contact
 end
 
 not_found do 
 	@title = "You typed something wrong in the browser! ha ha ha"
-	erb :not_found
+	slim :not_found
 end
 
 =begin

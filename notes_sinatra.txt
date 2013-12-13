@@ -90,3 +90,7 @@ installed: slim, sass, sqlite, data_mapper, dm-sqlite-adapter
 >> brew install sqlite 
 >> gem install data_mapper
 >> gem install dm-sqlite-adapter
+13/dec/2013
+
+# changed all erb files to .slim 
+# also added require 'slim' to the main file. 
