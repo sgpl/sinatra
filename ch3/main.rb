@@ -57,7 +57,7 @@ end
 
 
 get '/songs/:id' do 
-	@songs = Song.get(params[:id])
+	@song_id = Song.get(params[:id])
 	slim :show_song
 end
 

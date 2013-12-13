@@ -94,3 +94,58 @@ installed: slim, sass, sqlite, data_mapper, dm-sqlite-adapter
 
 # changed all erb files to .slim 
 # also added require 'slim' to the main file. 
+
+
+# mixin: reuses fragments of css containing properties or selectors that can be included in other declarations. 
+
+SASS and LESS are the two main CSS preprocessors at the moment. 
+Sass -> Sass or SCSS
+
+# wrt Object Relational Mappers
+- each ruby class will be represented by a table in the database, 
+and every instance of that class will be represented by a row in the table. the object's properties will be the columns. 
+
+ORM options for sinatra include: Active Record, Data Mapper and Sequel. 
+
+we are using data_mapper. 
+
+on irb:
+
+>> require './song'
+
+>> Song.auto_migrate!
+
+REFER TO PG. 56 ONWARDS FOR SOME DB UTILITY, 
+
+There are a number of HTTP verbs, but in practice we tend to only use five when dealing with resources on the Web:
+
+■ GET requests are used to retrieve resources.
+
+■ POST requests are usually employed to create a resource but can actually perform any task.
+
+■ PUT requests are used to “upsert,” which means it can insert a resource or update it in its entirety.
+
+■ PATCH requests make partial updates to a resource.
+
+■ DELETE requests are used to delete resources.
+
+------------
+Idempotence: when a fxn is applied multiple times to something but w/o changing the result after the first application, it is said to be idempotent. 
+In terms of HTTP methods: a request could be made numerous times, but the result will remain the same after the first successful request. 
+> GET, PUT, DELETE are idempotent methods. 
+
+
+http://tomayko.com/writings/rest-to-my-wife
+
+###>>>>IMPORTANT: ERRORS IN THE BOOK<<<<<###
+- pg 53
+	asks you to create route handlers in the song.rb file
+	(for all songs, and for song by id.)
+- pg 55
+	defines the variable @song for all songs
+	then defines the variable @song = Song.get(params[:id])
+	which leads to errors because they are referenced in show_song.slim
+
+
+- there are other issues that i need to fix: mainly: 
+>> songs without length defined don't get displayed. 
