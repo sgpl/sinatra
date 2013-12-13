@@ -31,13 +31,13 @@ DateTime - for date and time
 
 
 # copying the following two get methods because songs/:id isn't getting displayed properly
-get '/songs' do
-	@songs = Song.all
-	slim :songs
-end
+# get '/songs' do
+# 	@songs = Song.all
+# 	slim :songs
+# end
 
 
-get '/songs/:id' do 
-	@songs = Song.get(params[:id])
-	slim :show_song
-end
+# get '/songs/:id' do 
+# 	@songs = Song.get(params[:id])
+# 	slim :show_song
+# end
