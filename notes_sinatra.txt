@@ -45,3 +45,48 @@ end
 # we can add seconds to Time.now hence the * 3600 (60 min * 60 sec)
 ### understand what .strftime is doing?
 ---------
+
+
+#####
+chapter 2
+#####
+
+symbols start with a colon, and may or may not be inside quotes:
+
+:name
+:first_name
+:'last name' 
+
+symbols are similar to string objects. here is how they differ: 
+- two identical symbols are represented by the same object
+whereas two identical strings are represented by two distinct objects.  
+
+
+# review erb and stuff. 
+
+# we can add as many views as we like using inline views, but that'd be a lot of repetition since most pages will have the same HTML at the start and end. 
+
+# by default, Sinatra will automatically use any file called layout as the layout. 
+
+this is something that we can use to serve html pages to  avoid repetition. DRY: don't repeat yourself. 
+
+
+# alternatives to ERB supported by sinatra include:
+- Haml 
+- ERB
+- Liquid
+- Markdown
+- Textile
+- Radius 
+- Markaby
+- Slim # reads like html w/o the closing tags or <brackets >
+
+
+###>>>
+installed: slim, sass, sqlite, data_mapper, dm-sqlite-adapter
+
+>> gem install slim 
+>> gem install sass 
+>> brew install sqlite 
+>> gem install data_mapper
+>> gem install dm-sqlite-adapter
