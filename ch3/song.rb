@@ -54,3 +54,28 @@ get '/songs/:id' do
 	slim :show_song
 end
 
+post '/songs' do 
+	song = Song.create(params[:song])
+	redirect to("/songs/#{song.id}")
+end
+# posts to the database i guess
+# then creates the song w/ some id and the other specified parameters
+# Redirect helper: redirects to another page. 
+# to helper is an 'alias' for the url method. 
+
+get '/songs/:id/edit' do 
+	@song = Song.get(params[:id])
+	slim :edit_song
+end
+
+
+put '/songs/:id' do 
+	song = Song.get(params[:id])
+	song.update(params[:song])
+	redirect to("/songs/#{song.id}")
+end
+
+delete '/songs/:id' do 
+	Song.get(params[:id]).destroy
+	redirect to('/songs')
+end

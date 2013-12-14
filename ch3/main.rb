@@ -1,6 +1,6 @@
+require 'sinatra'
 require './song'
 require 'sass'
-require 'sinatra'
 require 'slim'
 require 'sinatra/reloader' if development?
 
