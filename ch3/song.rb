@@ -1,9 +1,15 @@
 require 'dm-core' # main data_mapper gem
 require 'dm-migrations'
 
-DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+configure do 
+	DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
 # this will create a file called development.db which will store all 
 # the database information. 
+end
+
+configure :development do 
+	DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+end
 
 class Song
 	include DataMapper::Resource # this line links song class to DataMapper which inclides the Resource module from the DataMapper gem as a mixin. 
@@ -45,6 +51,7 @@ get '/songs' do
 end
 
 get '/songs/new' do
+	halt(401, 'Not Authorized') unless session[:admin]
 	@song = Song.new
 	slim :new_song
 end
@@ -55,6 +62,7 @@ get '/songs/:id' do
 end
 
 post '/songs' do 
+	halt(401, 'Not Authorized') unless session[:admin]
 	song = Song.create(params[:song])
 	redirect to("/songs/#{song.id}")
 end
@@ -64,18 +72,21 @@ end
 # to helper is an 'alias' for the url method. 
 
 get '/songs/:id/edit' do 
+	halt(401, 'Not Authorized') unless session[:admin]
 	@song = Song.get(params[:id])
 	slim :edit_song
 end
 
 
 put '/songs/:id' do 
+	halt(401, 'Not Authorized') unless session[:admin]
 	song = Song.get(params[:id])
 	song.update(params[:song])
 	redirect to("/songs/#{song.id}")
 end
 
 delete '/songs/:id' do 
+	halt(401, 'Not Authorized') unless session[:admin]
 	Song.get(params[:id]).destroy
 	redirect to('/songs')
 end

@@ -4,8 +4,20 @@ require 'sass'
 require 'slim'
 require 'sinatra/reloader' if development?
 
+# implementing a simple login mechanism:
+configure do 
+	enable :sessions
+	set :username, "frank"
+	set :password, "sinatra"
+end
+
+get '/login' do 
+	slim :login
+end
+
 #set :public_folder, 'assets' # default name is public, but you can set it to whatever you want. 
 #set :views, 'templates'
+#set :port, 1234 # sets port to 1234 from the default of 4567
 
 # the default names are public and views
 # if you want to change them, you need to use the above code. 
@@ -49,7 +61,28 @@ get 'fake_error' do
 	"This is a fake error mate!"
 end
 
+post '/login' do 
+	if params[:username] == settings.username && params[:password] == settings.password
+		session[:admin] = true
+		redirect to('/songs')
+	else
+		slim :login
+	end
+end
 
+get '/logout' do 
+	session.clear
+	redirect to('/login')
+end
+
+# get '/set/:name' do
+# 	session[:name] = params[:name]
+# end
+
+# get '/get/hello' do 
+# 	"Hello #{session[:name]}"
+# end
+# -----
 # get '/songs' do
 # 	@songs = Song.all
 # 	slim :songs
