@@ -153,3 +153,11 @@ http://tomayko.com/writings/rest-to-my-wife
 irb>> Time.now.strftime("The time now is %B %e %Y")
 ## %y = 13 %Y = 2013
 ## %b = Dec %B = December
+
+
+### December 14, 2013
+- completed the app for frank sinatra apps. 
+- done till chapter 4 of the book. 
+- gonna switch to ruby? and then rails
+- not sure if i should be writing my own app for sinatra?
+- guess i'm writing the app after all, hopefully it'll be done by the evening. 
