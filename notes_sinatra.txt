@@ -137,11 +137,11 @@ In terms of HTTP methods: a request could be made numerous times, but the result
 
 http://tomayko.com/writings/rest-to-my-wife
 
-###>>>>IMPORTANT: ERRORS IN THE BOOK<<<<<###
-- pg 53
+###>>>>IMPORTANT:  IN THE BOOK<<<<<###
+- pg 53 ## this was my mistake because the main.rb file wasn't accessing the song.rb file due to some random turn of events. 
 	asks you to create route handlers in the song.rb file
 	(for all songs, and for song by id.)
-- pg 55
+- pg 55 ## since we are working with song.rb now, this naming shouldn't be an issue. 
 	defines the variable @song for all songs
 	then defines the variable @song = Song.get(params[:id])
 	which leads to errors because they are referenced in show_song.slim
@@ -149,3 +149,7 @@ http://tomayko.com/writings/rest-to-my-wife
 
 - there are other issues that i need to fix: mainly: 
 >> songs without length defined don't get displayed. 
+
+irb>> Time.now.strftime("The time now is %B %e %Y")
+## %y = 13 %Y = 2013
+## %b = Dec %B = December

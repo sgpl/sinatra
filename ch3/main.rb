@@ -1,8 +1,8 @@
+require './song'
 require 'sass'
 require 'sinatra'
 require 'slim'
 require 'sinatra/reloader' if development?
-require './song'
 
 #set :public_folder, 'assets' # default name is public, but you can set it to whatever you want. 
 #set :views, 'templates'
@@ -50,14 +50,18 @@ get 'fake_error' do
 end
 
 
-get '/songs' do
-	@songs = Song.all
-	slim :songs
-end
+# get '/songs' do
+# 	@songs = Song.all
+# 	slim :songs
+# end
+
+# get '/songs/:id' do 
+# 	@song_id = Song.get(params[:id])
+# 	slim :show_song
+# end
 
 
-get '/songs/:id' do 
-	@song_id = Song.get(params[:id])
-	slim :show_song
-end
-
+# get '/songs/new' do
+# 	@song = Song.new
+# 	slim :new_song
+# end

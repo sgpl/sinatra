@@ -13,7 +13,14 @@ class Song
 	property :lyrics, Text 
 	property :length, Integer 
 	property :released_on, Date 
+
+	def released_on=date
+		super Date.strptime(date, '%m/%d/%Y')
+	end
+
 end
+
+
 
 DataMapper.finalize
 # DataMapper.finalize is required after all classes using DataMapper to check their integrity. 
@@ -31,13 +38,19 @@ DateTime - for date and time
 
 
 # copying the following two get methods because songs/:id isn't getting displayed properly
-# get '/songs' do
-# 	@songs = Song.all
-# 	slim :songs
-# end
 
+get '/songs' do
+	@songs = Song.all
+	slim :songs
+end
 
-# get '/songs/:id' do 
-# 	@songs = Song.get(params[:id])
-# 	slim :show_song
-# end
+get '/songs/new' do
+	@song = Song.new
+	slim :new_song
+end
+
+get '/songs/:id' do 
+	@song = Song.get(params[:id])
+	slim :show_song
+end
+

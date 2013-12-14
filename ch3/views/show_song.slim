@@ -1,12 +1,12 @@
-h1= @song_id.title
-p Release Date: #{@song_id.released_on.strftime("%e %B %Y") if @song_id.released_on}
-p Length: #{@song_id.length/60} minutes #{@song_id.length%60} seconds
-pre= @song_id.lyrics
+h1= @song.title
+p Release Date: #{@song.released_on.strftime("%e %B %Y") if @song.released_on}
+p Length: #{@song.length/60} minutes #{@song.length%60} seconds
+pre= @song.lyrics
 p <a href="/songs">back to songs index</a>
-p <a href="/songs/#{@song_id.id}/edit">edit this song_id</a>
-form action="/songs/#{@song_id.id}" method="POST"
+p <a href="/songs/#{@song.id}/edit">edit this song</a>
+form action="/songs/#{@song.id}" method="POST"
   input type="hidden" name="_method" value="DELETE"
-  input type="submit" value="delete this song_id"
+  input type="submit" value="delete this song"
 
 
 
